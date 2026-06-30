@@ -1,0 +1,9 @@
+.gcloudignore
+.git
+.gitignore
+node_modules
+dist
+public/public_bak/
+*.zip
+.gemini/
+.agents/
