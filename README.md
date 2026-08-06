@@ -1,23 +1,21 @@
 # 🖥️ Gurnoor's Portfolio
 
-**Hi there! I'm Gurnoor!**
+**Yo! What's up, I'm Gurnoor!** 👋
 
-Please check out my projects over at my live portfolio:
+Welcome to my corner of the internet. I build weird, cool, and occasionally useful stuff — AI agents, OSINT tools, RL robots, voxel worlds, and even my own AI laptop from scratch. No templates, no hand-holding, just raw building.
+
+Wanna see the goods? Check out my live portfolio:
 
 ### 🌐 [praknoor.dev](https://praknoor.dev)
 
-Built with Vite + vanilla JS, GSAP, and Lenis. Hosted on Vercel.
+Pull it up — it's the real deal. Scroll around, open the project dossiers, vibe with it.
 
-## 🚀 Running Locally
+## 🚀 Running This No Jigly
 
 ```bash
-npm install     # install dependencies
-npm run dev     # local dev server (port 3000)
-npm run build   # production build to dist/
+npm install     # bring in the sauce
+npm run dev     # spin it up locally (port 3000)
+npm run build   # cook the production build to dist/
 ```
 
-Every `git push` to `main` auto-redeploys via Vercel.
-
-## 📄 License
-
-MIT
+Built with Vite, vanilla JS, GSAP & Lenis. 🔥
