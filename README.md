@@ -1,21 +1,31 @@
-# 🖥️ Gurnoor's Portfolio
+# 💻 Gurnoor's Portfolio
 
-**Yo! What's up, I'm Gurnoor!** 👋
+yooo gng so wass up, I am **Gurnoor Tamber** 👋
 
-Welcome to my corner of the internet. I build weird, cool, and occasionally useful stuff — AI agents, OSINT tools, RL robots, voxel worlds, and even my own AI laptop from scratch. No templates, no hand-holding, just raw building.
+Welcome to my little corner of the internet — no templates, no hand-holding, just raw building. I mess with AI agents, OSINT tools, RL robots, voxel worlds, an AI laptop I built from scratch, and a side-hustle startup I created and shipped live. This site is basically my field report of it all.
 
-Wanna see the goods? Check out my live portfolio:
+## 🛠️ How I Built It
 
-### 🌐 [praknoor.dev](https://praknoor.dev)
+Nothing fancy on my end — just pure, hand-rolled sauce:
 
-Pull it up — it's the real deal. Scroll around, open the project dossiers, vibe with it.
+- **Vite** to bundle everything up
+- **Vanilla JS** — no heavy framework holding my hand
+- **GSAP + ScrollTrigger** for the scrolly-telly animations
+- **Lenis** for that god-tier smooth scrolling
+- **Tailwind-style utility classes** custom-styled so it all hits the same aesthetic
 
-## 🚀 Running This No Jigly
+Greyed the layout, glued in the interactions, and pushed it. If it moves, scrolls, or glitches, I wired it.
+
+## 🌐 Yeah, Check Out the Website
+
+https://praknoor.dev
+
+Pull it up fr. Scroll around, open the project dossiers, vibe with the whole thing. It's live, it's real, and it's mine.
+
+## 🚀 Running It Local No Jiggy
 
 ```bash
 npm install     # bring in the sauce
-npm run dev     # spin it up locally (port 3000)
+npm run dev     # spin it up (port 3000)
 npm run build   # cook the production build to dist/
 ```
-
-Built with Vite, vanilla JS, GSAP & Lenis. 🔥
