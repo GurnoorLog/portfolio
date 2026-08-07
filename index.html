@@ -986,11 +986,10 @@
         <div class="absolute top-0 left-0 w-full h-full border border-white/5"></div>
         <div
             class="absolute top-4 left-1/2 -translate-x-1/2 font-header text-[7px] tracking-[2em] text-white/10 uppercase hidden sm:block">
-            Archive Access: Restricted</div>
+        </div>
         <div class="absolute bottom-10 right-10 items-end space-x-4 hidden sm:flex">
             <div class="flex flex-col items-end">
                 <span class="font-header text-[8px] text-sharingan-red">STATUS: OPERATIONAL</span>
-                <span class="font-header text-[6px] text-white/20">LATENCY: 14MS</span>
             </div>
             <div class="w-1 h-8 bg-sharingan-red"></div>
         </div>
@@ -1231,129 +1230,113 @@
         </div>
     </section>
     <!-- END: About Section -->
-    <!-- BEGIN: Test WebGL Section (Gatekeeper) -->
-    <section id="testwebgl" class="relative min-h-screen bg-charcoal overflow-hidden cursor-crosshair">
-        <canvas id="webgpu-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40"></canvas>
-        <div class="absolute inset-0 flex items-center justify-center opacity-10">
-            <div class="w-full h-full grid grid-cols-12 gap-0" id="webgl-grid">
-                <!-- Grid items will be injected or kept as simple divs -->
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
-                <div class="border-[0.5px] border-sharingan-red/10 aspect-square"></div>
+    <!-- BEGIN: About Continuation (Hackathon Records) -->
+    <section class="relative py-48 md:py-80 bg-charcoal overflow-hidden" id="hackathon">
+        <!-- Technical Background Layer -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute inset-0 opacity-[0.03]"
+                style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;">
             </div>
+            <div class="absolute inset-0 bg-gradient-to-b from-charcoal via-transparent to-charcoal"></div>
+            <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/10 blur-sm animate-scanline"></div>
         </div>
-
-        <!-- Interactive Target -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center select-none">
-            <div class="mb-4 flex flex-col items-center">
-                <span
-                    class="font-header text-[7px] tracking-[1.5em] text-sharingan-red/60 hud-text-glitch block mb-2">ACCESSING_NEURAL_INTERFACE</span>
-                <div class="w-px h-12 bg-gradient-to-b from-sharingan-red/60 to-transparent"></div>
-            </div>
-            <h2 class="webgl-title hover-glitch" data-text="EXPERIMENTAL">EXPERIMENTAL</h2>
-            <div class="mt-8 flex items-center justify-center space-x-12">
-                <div class="flex flex-col items-end">
-                    <span class="font-header text-[8px] text-white/20">CORE_LOAD</span>
-                    <span class="font-header text-[12px] text-sharingan-red">99.8%</span>
-                </div>
-                <div id="sync-trigger"
-                    class="group cursor-pointer relative px-8 py-4 border border-sharingan-red/40 hover:bg-sharingan-red/10 transition-all">
-                    <div
-                        class="absolute inset-0 bg-sharingan-red/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                    </div>
-                    <span
-                        class="font-header text-[10px] tracking-[0.5em] text-white group-hover:text-sharingan-red transition-colors relative z-10">SYNCHRONIZE</span>
-                </div>
-                <div class="flex flex-col items-start">
-                    <span class="font-header text-[8px] text-white/20">SYNC_RATE</span>
-                    <span class="font-header text-[12px] text-sharingan-red">ULTRA</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Premium Award UI HUD -->
-        <div class="premium-hud">
-            <div class="flex flex-col space-y-4">
-                <div class="hud-bracket hud-bracket-left p-2 flex items-center">
-                    <div class="w-full h-px bg-sharingan-red/30"></div>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-header text-[9px] text-sharingan-red tracking-[0.5em] uppercase">Award Winning
-                        UI/UX</span>
-                    <span class="font-header text-[6px] text-white/30 tracking-[1em] mt-1 uppercase">Digital Excellence
-                        Archive</span>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-end space-y-4">
-                <div class="text-right">
-                    <span class="font-header text-[8px] text-white/40 block mb-1 uppercase">Interactive Protocol</span>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 rounded-full bg-sharingan-red animate-pulse"></div>
-                        <span class="font-header text-[10px] text-white tracking-widest uppercase">Live Interface</span>
+        <div class="w-full h-px bg-white/5 relative z-10"></div>
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center mb-4 micro-blueprint px-2"><span
+                    class="text-sharingan-red">V.04_COMPETITION_LOG</span><span>HACKATHON_ARCHIVE</span></div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-20">
+                <div class="lg:col-span-1 border-r border-white/5 pr-4 relative">
+                    <div class="sticky top-32">
+                        <div class="absolute -left-4 top-0 w-1 h-12 bg-sharingan-red/40"></div>
+                        <span
+                            class="font-header text-sharingan-red text-2xl tracking-tighter block font-black">02/</span>
+                        <span
+                            class="vertical-text font-header text-white/20 text-[8px] tracking-[2em] uppercase mt-12 block">FIELD_RECORDS</span>
+                        <div class="mt-20 space-y-4 opacity-20">
+                            <div class="w-full h-px bg-white"></div>
+                            <div class="w-1/2 h-px bg-white"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="hud-bracket hud-bracket-right p-2 flex items-center">
-                    <div class="w-full h-px bg-sharingan-red/30"></div>
+                <div class="lg:col-span-11">
+                    <div class="relative mb-20">
+                        <div class="ui-corner ui-corner-tl"></div>
+                        <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative">
+                            <span
+                                class="block font-header text-[10px] tracking-[1em] text-sharingan-red mb-8 animate-pulse">//
+                                COMPETITION_HISTORY_V1</span>
+                            <span class="block relative z-10">Hackathon</span>
+                            <span
+                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20">Records</span>
+                            <div
+                                class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
+                            </div>
+                        </h2>
+                    </div>
+                    <div class="space-y-12 max-w-xl">
+                        <div class="premium-citation-box group">
+                            <div class="citation-glitch-bg"></div>
+                            <div class="font-jp-glitch top-0 right-0">戦績</div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-6">
+                                    <span
+                                        class="font-header text-[9px] tracking-[0.4em] text-sharingan-red uppercase">USAII® GLOBAL
+                                        AI HACKATHON 2026</span>
+                                    <span
+                                        class="font-header text-[9px] text-sharingan-red border border-sharingan-red/40 px-3 py-1 uppercase">FINALIST</span>
+                                </div>
+                                <p class="font-body text-2xl md:text-3xl text-white leading-tight font-light mb-6 tracking-tighter">
+                                    <span class="highlight-text font-bold">CanteenTycoon AI</span> — AI-powered canteen
+                                    management system built for the hackathon.
+                                </p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="https://devpost.com/software/canteentycoon-ai" target="_blank"
+                                        rel="noopener" class="tactical-btn">
+                                        <span class="relative z-10">VIEW_DEVPOST_SUBMISSION</span>
+                                        <div class="btn-decor-line"></div>
+                                    </a>
+                                    <a href="/certificates/usaii-certificate.png" target="_blank" rel="noopener"
+                                        class="tactical-btn secondary">
+                                        <span class="relative z-10">VIEW_CERTIFICATE</span>
+                                        <div class="btn-decor-line"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="premium-citation-box group">
+                            <div class="citation-glitch-bg"></div>
+                            <div class="font-jp-glitch top-0 right-0">戦術</div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-6">
+                                    <span
+                                        class="font-header text-[9px] tracking-[0.4em] text-sharingan-red uppercase">UNITED HACKS V7</span>
+                                    <span
+                                        class="font-header text-[9px] px-3 py-1 border border-sharingan-red/40 text-sharingan-red uppercase">3RD PLACE</span>
+                                </div>
+                                <p class="font-body text-2xl md:text-3xl text-white leading-tight font-light mb-6 tracking-tighter">
+                                    <span class="text-white font-bold">PenaltyIQ</span> — an intelligent penalty-kick
+                                    prediction system.
+                                </p>
+                                <div class="flex flex-wrap gap-4">
+                                    <a href="https://devpost.com/software/penaltyiq" target="_blank" rel="noopener"
+                                        class="tactical-btn">
+                                        <span class="relative z-10">VIEW_DEVPOST_SUBMISSION</span>
+                                        <div class="btn-decor-line"></div>
+                                    </a>
+                                    <a href="/certificates/united-hacks-certificate.pdf" target="_blank"
+                                        rel="noopener" class="tactical-btn secondary">
+                                        <span class="relative z-10">VIEW_CERTIFICATE</span>
+                                        <div class="btn-decor-line"></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Mouse Following HUD Deco -->
-        <div id="mouse-hud" class="fixed pointer-events-none z-50 mix-blend-difference hidden md:block"
-            style="opacity: 0">
-            <div class="relative w-16 h-16 -translate-x-1/2 -translate-y-1/2">
-                <div
-                    class="absolute inset-0 border border-sharingan-red/40 rounded-full animate-spin [animation-duration:10s]">
-                </div>
-                <div
-                    class="absolute inset-2 border border-sharingan-red/20 rounded-full animate-spin [animation-duration:5s] direction-reverse">
-                </div>
-                <div
-                    class="absolute top-1/2 left-1/2 w-4 h-[1px] bg-sharingan-red/60 -translate-x-1/2 -translate-y-1/2">
-                </div>
-                <div
-                    class="absolute top-1/2 left-1/2 w-[1px] h-4 bg-sharingan-red/60 -translate-x-1/2 -translate-y-1/2">
-                </div>
-            </div>
-        </div>
-
-        <!-- Corner decorations -->
-        <div class="absolute top-10 left-10 w-20 h-20 border-t border-l border-sharingan-red/20"></div>
-        <div class="absolute bottom-10 right-10 w-20 h-20 border-b border-r border-sharingan-red/20"></div>
     </section>
 
-    <!-- BEGIN: Second Scrollytelling Section (Intro to Works) -->
-    <section class="relative h-[300vh] w-full bg-deep-black z-40" id="scrollytelling-2">
-        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center">
-            <canvas class="absolute inset-0 w-full h-full object-cover opacity-60" id="sequence-canvas-2"></canvas>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-deep-black/20 to-deep-black"></div>
-            <div class="relative z-10 text-center" id="sequence-2-content">
-                <span
-                    class="font-header text-[10px] tracking-[1.5em] text-sharingan-red block mb-6">INITIATING_PHASE_02</span>
-                <h2 class="font-display text-6xl md:text-8xl uppercase leading-none" id="projects-title">
-                    Selected<br /><span class="text-sharingan-red italic font-serif-display lowercase">Works</span>
-                </h2>
-            </div>
-        </div>
-    </section>
-    <!-- END: Second Scrollytelling Section -->
-    <!-- BEGIN: Alche Studio Works Section -->
-    <section class="relative w-full h-screen bg-charcoal overflow-hidden" id="projects">
-        <!-- JS will inject Works__container here -->
-    </section>
-    <!-- END: Alche Studio Works Section -->
-
-    <!-- END: Test WebGL Section -->
     <!-- BEGIN: Expertise Section -->
     <section class="py-48 md:py-80 bg-charcoal relative overflow-hidden" data-purpose="expertise-grid" id="expertise">
         <!-- Background Text Deco -->
@@ -1405,7 +1388,7 @@
                 </div>
                 <!-- Item 2: THE CREATOR -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group transition-all duration-700 relative overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative overflow-hidden">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x02</span>
@@ -1425,7 +1408,7 @@
                 </div>
                 <!-- Item 3: THE THINKER -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group transition-all duration-700 relative overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x03</span>
@@ -1445,7 +1428,7 @@
                 </div>
                 <!-- Item 4: THE HUSTLER -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group transition-all duration-700 relative overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x04</span>
@@ -1464,10 +1447,51 @@
                         vision at maximum.</p>
                 </div>
             </div>
+            <div class="mt-24">
+                <div class="flex items-center space-x-4 mb-8">
+                    <div class="w-1 h-8 bg-sharingan-red"></div>
+                    <span class="font-header text-[10px] text-sharingan-red tracking-[0.5em] uppercase">TECH_STACK //
+                        SKILL_TAGS</span>
+                    <span class="font-mono text-[8px] text-white/20 tracking-[0.3em]">DEPLOYED_MODULES</span>
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <span class="project-tag">AI</span>
+                    <span class="project-tag">Machine Learning</span>
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">Go</span>
+                    <span class="project-tag">HTML</span>
+                    <span class="project-tag">CSS</span>
+                    <span class="project-tag">RAG / LLMs</span>
+                    <span class="project-tag">AI Integration</span>
+                </div>
+            </div>
         </div>
     </section>
     <!-- END: Expertise Section -->
-    <!-- BEGIN: Footer / Call to Action -->
+
+    <!-- BEGIN: Second Scrollytelling Section (Intro to Works) -->
+    <section class="relative h-[300vh] w-full bg-deep-black z-40" id="scrollytelling-2">
+        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center">
+            <canvas class="absolute inset-0 w-full h-full object-cover opacity-60" id="sequence-canvas-2"></canvas>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-deep-black/20 to-deep-black"></div>
+            <div class="relative z-10 text-center" id="sequence-2-content">
+                <span
+                    class="font-header text-[10px] tracking-[1.5em] text-sharingan-red block mb-6">INITIATING_PHASE_02</span>
+                <h2 class="font-display text-6xl md:text-8xl uppercase leading-none" id="projects-title">
+                    Selected<br /><span class="text-sharingan-red italic font-serif-display lowercase">Works</span>
+                </h2>
+            </div>
+        </div>
+    </section>
+    <!-- END: Second Scrollytelling Section -->
+    <!-- BEGIN: Alche Studio Works Section -->
+    <section class="relative w-full h-screen bg-charcoal overflow-hidden" id="projects">
+        <!-- JS will inject Works__container here -->
+    </section>
+    <!-- END: Alche Studio Works Section -->
+
+    <!-- END: Test WebGL Section -->
+<!-- BEGIN: Footer / Call to Action -->
     <footer class="bg-charcoal py-32 border-t border-white/5" data-purpose="main-footer">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-12 md:space-y-0">

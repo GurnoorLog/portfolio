@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navProgress) navProgress.style.width = `${progress * 100}%`;
 
         // Surface HUD Tracking (Simplified detection)
-        const sections = ['about', 'expertise', 'projects', 'testwebgl'];
+        const sections = ['about', 'expertise', 'projects'];
         for (const id of sections) {
             const el = document.getElementById(id);
             if (el) {
@@ -329,48 +329,9 @@ document.addEventListener('DOMContentLoaded', () => {
         onComplete: () => triggerDataStream()
     }, 0.8);
 
-    // --- WebGL Section Interaction ---
-    const mouseHud = document.getElementById('mouse-hud');
-    const webglSection = document.getElementById('testwebgl');
-    const syncTrigger = document.getElementById('sync-trigger');
-
-    if (mouseHud && webglSection) {
-        window.addEventListener('mousemove', (e) => {
-            const rect = webglSection.getBoundingClientRect();
-            const isInSection = (
-                e.clientX >= rect.left &&
-                e.clientX <= rect.right &&
-                e.clientY >= rect.top &&
-                e.clientY <= rect.bottom
-            );
-
-            if (isInSection) {
-                gsap.to(mouseHud, {
-                    x: e.clientX,
-                    y: e.clientY,
-                    opacity: 1,
-                    duration: 0.2,
-                    ease: 'power2.out'
-                });
-            } else {
-                gsap.to(mouseHud, {
-                    opacity: 0,
-                    duration: 0.2
-                });
-            }
-        });
-    }
+    // --- WebGL Section Interaction (removed) ---
 
     // --- Section Tracking ---
-    ScrollTrigger.create({
-        trigger: '#testwebgl',
-        start: 'top 50%',
-        end: 'bottom 50%',
-        onToggle: self => {
-            if (self.isActive) document.body.setAttribute('data-current-section', 'testwebgl');
-        }
-    });
-
     ScrollTrigger.create({
         trigger: '#projects',
         start: 'top 50%',
@@ -379,20 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (self.isActive) document.body.setAttribute('data-current-section', 'works');
         }
     });
-
-    if (syncTrigger) {
-        syncTrigger.addEventListener('click', () => {
-            // "Unlock" flow: Scroll to Projects section
-            const target = document.getElementById('scrollytelling-2');
-            if (target) {
-                lenis.scrollTo(target, {
-                    duration: 3, // slightly longer for dramatic effect
-                    offset: 0,
-                    easing: (t) => 1 - Math.pow(1 - t, 4)
-                });
-            }
-        });
-    }
 
     // --- Works Section Initialization ---
     new WorksManager();
