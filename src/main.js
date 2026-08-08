@@ -27,6 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
     });
 
+    // --- Brush Paint Boot Screen ---
+    const bootScreen = document.getElementById('boot-screen');
+    if (bootScreen) {
+        const revealMain = () => {
+            bootScreen.classList.add('is-done');
+            const hero = document.getElementById('hero-content-wrapper');
+            if (hero) {
+                gsap.fromTo(hero,
+                    { opacity: 0.15, y: 52, filter: 'blur(10px)' },
+                    { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.5, ease: 'power2.out' });
+            }
+        };
+        window.setTimeout(revealMain, 2450);
+        window.setTimeout(() => bootScreen.remove(), 4200);
+    }
+
     window.lenis = new Lenis({
         duration: 2,
         easing: (t) => 1 - Math.pow(1 - t, 4), // Quartic Out for smoother tail
@@ -64,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Scroll Progress & HUD Tracking ---
     const navProgress = document.getElementById('nav-progress');
     const hudSectionName = document.getElementById('hud-section-name');
+    const bladeFill = document.getElementById('blade-progress-fill');
 
     window.lenis.on('scroll', (e) => {
         ScrollTrigger.update();
@@ -71,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update Scroll Progress
         const progress = e.progress;
         if (navProgress) navProgress.style.width = `${progress * 100}%`;
+        if (bladeFill) bladeFill.style.height = `${progress * 100}%`;
 
         // Surface HUD Tracking (Simplified detection)
         const sections = ['about', 'expertise', 'projects'];
@@ -152,6 +170,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     gsap.registerPlugin(ScrollTrigger);
+
+    // --- Spotlight Follow Cards ---
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+        card.addEventListener('pointermove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+        });
+    });
 
     // Ensure all triggers are calculated from the top
     ScrollTrigger.refresh();

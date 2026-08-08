@@ -979,18 +979,373 @@
             body, a, button { cursor: none !important; }
         }
     </style>
+
+    <!-- ============ PERSONAL PROCEDURES // HAND-BUILT STYLE LAYER ============ -->
+    <style data-purpose="tamber-custom-effects">
+        /* ---------- 1. KATANA BLADE SCROLL PROGRESS ---------- */
+        #blade-progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 3px;
+            height: 100vh;
+            z-index: 299999;
+            pointer-events: none;
+            background: rgba(255, 255, 255, 0.04);
+            mix-blend-mode: normal;
+        }
+
+        #blade-progress-fill {
+            display: block;
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(180deg, #FF0022 0%, #ff4455 60%, rgba(255, 68, 85, 0.6) 100%);
+            box-shadow: 0 0 12px #FF0022, 0 0 32px rgba(255, 0, 34, 0.45);
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4px), 50% 100%, 0 calc(100% - 4px));
+        }
+
+        #blade-progress-hilt {
+            position: fixed;
+            right: -1px;
+            bottom: 0;
+            width: 6px;
+            height: 64px;
+            z-index: 299999;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255, 0, 34, 0.0), rgba(255, 0, 34, 0.55), #FF0022);
+            clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+        }
+
+        /* ---------- 2. RGB CHANNEL SPLIT (chromatic aberration hover) ---------- */
+        .rgb-split {
+            position: relative;
+        }
+
+        .rgb-split:hover,
+        .rgb-split.is-aberrating {
+            animation: rgb-jitter 0.28s steps(2, end) infinite;
+            text-shadow: -2px 0 #FF0022, 2px 0 #00e5ff;
+        }
+
+        @keyframes rgb-jitter {
+            0% { transform: translate(-1px, 0); }
+            50% { transform: translate(1px, -1px); }
+            100% { transform: translate(-1px, 1px); }
+        }
+
+        /* ---------- 3. SPOTLIGHT FOLLOW CARDS ---------- */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 0, 34, 0.16), transparent 62%);
+            transition: opacity 0.35s ease;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        /* ---------- 4. BRUSH PAINT BOOT SCREEN ---------- */
+        #boot-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 400000;
+            background: radial-gradient(130% 130% at 50% 42%, #16161e 0%, #0a0a0f 55%, #050507 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            transition: opacity 1.35s ease 0.15s, visibility 1.35s ease 0.15s;
+        }
+
+        #boot-screen.is-done {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        #boot-screen.is-done #boot-svg {
+            opacity: 0;
+            transform: scale(1.05) translateY(-22px);
+            filter: blur(10px);
+            transition: opacity 1.2s ease 0.1s, transform 1.4s ease 0.1s, filter 1.25s ease 0.1s;
+        }
+
+        #boot-screen.is-done .boot-status {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #boot-svg {
+            width: min(940px, 90vw);
+            filter: drop-shadow(0 0 24px rgba(255, 0, 34, 0.18));
+        }
+
+        .boot-text {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            fill: none;
+            stroke: #ffffff;
+            stroke-width: 2.5;
+            letter-spacing: 0.06em;
+            paint-order: stroke;
+            text-shadow: 0 0 18px rgba(255, 255, 255, 0.25);
+        }
+
+        .boot-text-serif {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            fill: #FF0022;
+            text-shadow: 0 0 30px rgba(255, 0, 34, 0.35);
+        }
+
+        /* The brush wipes the name in left -> right (organic wobble via SVG filter) */
+        #wipeBand {
+            transform: translateX(-100%);
+            animation: wipe-paint 2.4s cubic-bezier(0.18, 0.9, 0.22, 1) forwards;
+        }
+
+        @keyframes wipe-paint {
+            0% { transform: translateX(-100%); }
+            82% { transform: translateX(-2%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Ink smear trails the brush */
+        #brushStreak {
+            transform: translateX(-120%);
+            animation: brush-sweep 2.4s cubic-bezier(0.18, 0.9, 0.22, 1) forwards;
+        }
+
+        @keyframes brush-sweep {
+            0% { transform: translateX(-120%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Brush head rides the leading edge */
+        #brushTipRide {
+            opacity: 0;
+            animation: tip-ride 2.4s cubic-bezier(0.18, 0.9, 0.22, 1) forwards;
+        }
+
+        @keyframes tip-ride {
+            0% { opacity: 0; transform: translate(-620px, 120px); }
+            7% { opacity: 1; }
+            88% { opacity: 1; transform: translate(760px, 120px); }
+            98% { opacity: 0.6; transform: translate(970px, 120px); }
+            100% { opacity: 0; transform: translate(985px, 120px); }
+        }
+
+        /* Wet sheen glides over the finished ink */
+        .boot-sheen rect {
+            transform: translateX(-500px);
+            animation: sheen-glide 1s ease-out 2.15s forwards;
+        }
+
+        @keyframes sheen-glide {
+            to { transform: translateX(1080px); }
+        }
+
+        /* Ink flecks flicked off at the end */
+        #inkDrops {
+            opacity: 0;
+        }
+
+        #inkDrops .drop {
+            animation: drop-flick 0.9s cubic-bezier(0.3, 0, 0.8, 0.4) forwards;
+            animation-delay: 2.5s;
+        }
+
+        #inkDrops .d2 {
+            animation-delay: 2.42s;
+            animation-duration: 1s;
+        }
+
+        #inkDrops .d3 {
+            animation-delay: 2.6s;
+            animation-duration: 0.8s;
+        }
+
+        @keyframes drop-flick {
+            0% { opacity: 0; transform: translate(742px, 96px); }
+            12% { opacity: 1; }
+            100% { opacity: 0; transform: translate(672px, 168px); }
+        }
+
+        .boot-status {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-family: 'Space Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .boot-sep {
+            color: rgba(255, 0, 34, 0.6);
+        }
+
+        .boot-blink {
+            color: #FF0022;
+            animation: boot-blink 1.1s steps(2, start) infinite;
+        }
+
+        @keyframes boot-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.25; }
+        }
+
+        @supports (animation-timeline: view()) {
+
+            /* ---------- 5. STAMPED KANJI BADGES ---------- */
+            .kanji-stamp {
+                animation: stamp-in 0.7s cubic-bezier(0.2, 1.6, 0.4, 1) both;
+                animation-timeline: view();
+                animation-range: entry 5% entry 70%;
+            }
+
+            @keyframes stamp-in {
+                0% { opacity: 0; transform: scale(2.6) rotate(-14deg); box-shadow: 0 0 0 rgba(255, 0, 34, 0); }
+                55% { opacity: 1; box-shadow: 0 0 0 6px rgba(255, 0, 34, 0.16); }
+                72% { transform: scale(0.9) rotate(2deg); }
+                100% { opacity: 1; transform: scale(1) rotate(0deg); box-shadow: 0 0 0 0 rgba(255, 0, 34, 0); }
+            }
+
+            /* ---------- 5. KATANA SLICE SECTION REVEALS ---------- */
+            .katana-slice {
+                animation: katana-slice-reveal both linear;
+                animation-timeline: view();
+                animation-range: entry 5% entry 62%;
+            }
+
+            .katana-slice::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: -4%;
+                width: 0%;
+                height: 2px;
+                transform: translateY(-50%);
+                background: linear-gradient(90deg, transparent, #FF0022, #fff, #FF0022, transparent);
+                box-shadow: 0 0 18px #FF0022, 0 0 42px rgba(255, 0, 34, 0.45);
+                animation: katana-slice-blade both linear;
+                animation-timeline: view();
+                animation-range: entry 5% entry 45%;
+            }
+
+            @keyframes katana-slice-reveal {
+                0% { clip-path: inset(0 100% 0 0); }
+                62%, 100% { clip-path: inset(0 0 0 0); }
+            }
+
+            @keyframes katana-slice-blade {
+                0% { width: 0%; }
+                32% { width: 108%; }
+                62%, 100% { width: 108%; opacity: 0; }
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-charcoal text-white font-body selection:bg-sharingan-red overflow-x-hidden crt-flicker splatter-bg">
+    <!-- Brush Paint Boot Screen -->
+    <div id="boot-screen" aria-hidden="true">
+        <svg id="boot-svg" viewBox="0 0 1000 260" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="inkGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#FF0022" />
+                    <stop offset="0.6" stop-color="#ff5566" />
+                    <stop offset="1" stop-color="#ffffff" />
+                </linearGradient>
+                <linearGradient id="sheenGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#ffffff" stop-opacity="0" />
+                    <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.5" />
+                    <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+                </linearGradient>
+
+                <!-- Organic wet-brush noise that makes the paint edge wobble -->
+                <filter id="wetEdge" x="-30%" y="-30%" width="160%" height="160%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="3"
+                        seed="7" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="36"
+                        xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+                <filter id="wetEdgeSoft" x="-30%" y="-30%" width="160%" height="160%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.02 0.09" numOctaves="2"
+                        seed="13" result="noise" />
+                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="20"
+                        xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+
+                <!-- The mask that "paints" the name in -->
+<mask id="brushWipe">
+                    <rect id="wipeBand" x="0" y="0" width="1000" height="260"
+                        fill="#ffffff" filter="url(#wetEdgeSoft)" />
+                </mask>
+            </defs>
+
+            <!-- Ink smear the brush drags behind it -->
+            <path id="brushStreak" d="M-150 118 C -40 62, 300 78, 1150 126 L 1150 168 C 300 130, -40 92, -150 112 Z"
+                fill="url(#inkGrad)" opacity="0.3" filter="url(#wetEdge)" />
+
+            <!-- The name, revealed only as the brush passes over it -->
+            <g mask="url(#brushWipe)">
+                <text class="boot-text" x="500" y="138" text-anchor="middle" font-size="92">GURNOOR</text>
+                <text class="boot-text-serif" x="500" y="232" text-anchor="middle" font-size="138">Tamber</text>
+            </g>
+
+            <!-- Wet sheen sweeping over the painted ink -->
+            <g class="boot-sheen" mask="url(#brushWipe)">
+                <rect x="-400" y="-40" width="340" height="340" fill="url(#sheenGrad)" />
+            </g>
+
+            <!-- Brush head riding the leading edge -->
+            <g id="brushTipRide">
+                <g id="brushTip" transform="rotate(-16)">
+                    <path d="M0 0 C 26 -24 62 -19 82 0 C 62 20 26 26 0 0 Z" fill="#FF0022" />
+                    <path d="M6 0 C 26 -10 48 -10 62 0 C 48 10 26 12 6 0 Z" fill="#ff8899" opacity="0.6" />
+                    <path d="M82 0 L 92 4 L 96 0 L 92 -4 Z" fill="#5d000d" />
+                </g>
+            </g>
+
+            <!-- Ink flecks flung off the brush as it finishes -->
+            <g id="inkDrops">
+                <circle class="drop" cx="0" cy="0" r="3.2" fill="#FF0022" />
+                <circle class="drop d2" cx="0" cy="0" r="2.1" fill="#ff5566" />
+                <circle class="drop d3" cx="0" cy="0" r="1.4" fill="#ffffff" />
+            </g>
+        </svg>
+
+        <div class="boot-status">
+            <span class="boot-blink">PAINTING_SESSION</span>
+            <span class="boot-sep">//</span>
+            <span>INK_LOAD_100%</span>
+            <span class="boot-sep">//</span>
+            <span class="boot-blink" style="animation-delay:0.4s">TA_TAMBER</span>
+        </div>
+    </div>
+    <!-- Katana Blade Scroll Progress -->
+    <div id="blade-progress" aria-hidden="true"><i id="blade-progress-fill"></i></div>
+    <div id="blade-progress-hilt" aria-hidden="true"></div>
     <div class="fixed inset-0 pointer-events-none z-[60] border-[10px] md:border-[40px] border-transparent">
         <div class="absolute top-0 left-0 w-full h-full border border-white/5"></div>
         <div
             class="absolute top-4 left-1/2 -translate-x-1/2 font-header text-[7px] tracking-[2em] text-white/10 uppercase hidden sm:block">
         </div>
         <div class="absolute bottom-10 right-10 items-end space-x-4 hidden sm:flex">
-            <div class="flex flex-col items-end">
-                <span class="font-header text-[8px] text-sharingan-red">STATUS: OPERATIONAL</span>
-            </div>
             <div class="w-1 h-8 bg-sharingan-red"></div>
         </div>
     </div>
@@ -1017,10 +1372,10 @@
                         </div>
                         <div class="relative">
                             <span
-                                class="font-header leading-none tracking-[-0.05em] text-transparent border-white/20 uppercase block"
+                                class="font-header leading-none tracking-[-0.05em] text-transparent border-white/20 uppercase block rgb-split"
                                 style="font-size: clamp(2.5rem, 18vw, 12rem); -webkit-text-stroke: 1px rgba(255,255,255,0.3);">Gurnoor</span>
                             <span
-                                class="font-serif-display italic font-black leading-[0.6] text-sharingan-red blend-diff text-glow-premium absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 z-10"
+                                class="font-serif-display italic font-black leading-[0.6] text-sharingan-red blend-diff text-glow-premium absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/3 z-10 rgb-split"
                                 style="font-size: clamp(3rem, 22vw, 14rem);">Tamber</span>
                         </div>
                         <div class="mt-12 flex flex-col items-center">
@@ -1155,9 +1510,9 @@
                             <span
                                 class="block font-header text-[10px] tracking-[1em] text-sharingan-red mb-8 animate-pulse">//
                                 IDENTITY_PROTOCOL_V7.2</span>
-                            <span class="block relative z-10">Gurnoor</span>
+                            <span class="block relative z-10 rgb-split">Gurnoor</span>
                             <span
-                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20">Tamber</span>
+                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Tamber</span>
                             <div
                                 class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
                             </div>
@@ -1243,7 +1598,7 @@
         <div class="w-full h-px bg-white/5 relative z-10"></div>
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center mb-4 micro-blueprint px-2"><span
-                    class="text-sharingan-red">V.04_COMPETITION_LOG</span><span>HACKATHON_ARCHIVE</span></div>
+                    class="text-sharingan-red kanji-stamp">V.04_COMPETITION_LOG</span><span>HACKATHON_ARCHIVE</span></div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-20">
                 <div class="lg:col-span-1 border-r border-white/5 pr-4 relative">
                     <div class="sticky top-32">
@@ -1261,20 +1616,20 @@
                 <div class="lg:col-span-11">
                     <div class="relative mb-20">
                         <div class="ui-corner ui-corner-tl"></div>
-                        <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative">
+                        <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative katana-slice">
                             <span
                                 class="block font-header text-[10px] tracking-[1em] text-sharingan-red mb-8 animate-pulse">//
                                 COMPETITION_HISTORY_V1</span>
-                            <span class="block relative z-10">Hackathon</span>
+                            <span class="block relative z-10 rgb-split">Hackathon</span>
                             <span
-                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20">Records</span>
+                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Records</span>
                             <div
                                 class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
                             </div>
                         </h2>
                     </div>
                     <div class="space-y-12 max-w-xl">
-                        <div class="premium-citation-box group">
+                        <div class="premium-citation-box group spotlight-card">
                             <div class="citation-glitch-bg"></div>
                             <div class="font-jp-glitch top-0 right-0">戦績</div>
                             <div class="relative z-10">
@@ -1303,7 +1658,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="premium-citation-box group">
+                        <div class="premium-citation-box group spotlight-card">
                             <div class="citation-glitch-bg"></div>
                             <div class="font-jp-glitch top-0 right-0">戦術</div>
                             <div class="relative z-10">
@@ -1346,9 +1701,9 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="mb-24 flex items-end justify-between">
                 <div class="relative mb-32"><span
-                        class="font-header text-sharingan-red text-sm tracking-widest block mb-4">02 /
+                        class="font-header text-sharingan-red text-sm tracking-widest block mb-4 kanji-stamp">02 /
                         CAPABILITIES</span>
-                    <h2 class="font-display text-6xl md:text-9xl uppercase leading-none tracking-tighter">Core
+                    <h2 class="font-display text-6xl md:text-9xl uppercase leading-none tracking-tighter relative katana-slice">Core
                         <br /><span class="text-sharingan-red font-serif-display italic">Expertise</span> <span
                             class="text-[0.2em] align-middle ml-4 text-white/20">専門知識</span>
                     </h2>
@@ -1368,7 +1723,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
                 <!-- Item 1: THE ENGINEER -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group transition-all duration-700 relative overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group transition-all duration-700 relative overflow-hidden spotlight-card">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x01</span>
@@ -1388,7 +1743,7 @@
                 </div>
                 <!-- Item 2: THE CREATOR -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative overflow-hidden spotlight-card">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x02</span>
@@ -1408,7 +1763,7 @@
                 </div>
                 <!-- Item 3: THE THINKER -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden spotlight-card">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x03</span>
@@ -1428,7 +1783,7 @@
                 </div>
                 <!-- Item 4: THE HUSTLER -->
                 <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden">
+                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden spotlight-card">
                     <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
                     <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
                         <span class="font-header text-4xl">0x04</span>
@@ -1484,7 +1839,7 @@
                     </div>
                 </div>
                 <div class="lg:col-span-8 relative">
-                    <div class="relative p-1 border border-white/10 group overflow-hidden">
+                    <div class="relative p-1 border border-white/10 group overflow-hidden spotlight-card">
                         <img src="/phtots_projects/startup-preview.png" alt="Startup preview"
                             class="w-full h-[420px] object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
                         <div
@@ -1521,7 +1876,7 @@
                 <span
                     class="font-header text-[10px] tracking-[1.5em] text-sharingan-red block mb-6">INITIATING_PHASE_02</span>
                 <h2 class="font-display text-6xl md:text-8xl uppercase leading-none" id="projects-title">
-                    Selected<br /><span class="text-sharingan-red italic font-serif-display lowercase">Works</span>
+                    Selected<br /><span class="text-sharingan-red italic font-serif-display lowercase rgb-split">Works</span>
                 </h2>
             </div>
         </div>

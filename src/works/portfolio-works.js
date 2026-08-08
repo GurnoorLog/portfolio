@@ -211,7 +211,7 @@ export class WorksManager {
                 <div class="Works__content relative z-50 w-full h-full overflow-hidden" data-works-scroll="">
                     <div class="Works__list flex items-center h-full" style="width: ${this.projects.length * 100}vw;">
                         ${this.projects.map((p, i) => `
-                            <div class="Works__item" data-works-id="${p.id}">
+                            <div class="Works__item spotlight-card" data-works-id="${p.id}">
                                 <!-- Tactical Corner Marks -->
                                 <div class="absolute top-20 left-20 w-8 h-8 border-t border-l border-sharingan-red/30"></div>
                                 <div class="absolute bottom-20 right-20 w-8 h-8 border-b border-r border-sharingan-red/30"></div>
