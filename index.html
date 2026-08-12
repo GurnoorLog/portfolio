@@ -334,6 +334,9 @@
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&amp;display=swap"
         rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&amp;family=Cormorant+Garamond:ital@0;1&amp;display=swap"
+        rel="stylesheet" />
     <style>
         .font-serif-display {
             font-family: 'Playfair Display', serif;
@@ -1258,6 +1261,142 @@
             }
         }
     </style>
+    <style data-purpose="editorial-design">
+        /* ===== EDITORIAL FASHION // PAPER SECTIONS ===== */
+        :root {
+            --paper: #f2ece1;
+            --paper-2: #ece3d2;
+            --ink: #1a150e;
+            --ink-soft: #4a4238;
+            --ink-faint: rgba(26, 21, 14, 0.42);
+            --ink-line: rgba(26, 21, 14, 0.15);
+        }
+
+        .paper {
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        /* dark-text overrides for the Tailwind utilities used inside paper sections */
+        .paper .text-white { color: var(--ink) !important; }
+        .paper .text-white\/10 { color: var(--ink-faint) !important; }
+        .paper .text-white\/20 { color: var(--ink-faint) !important; }
+        .paper .text-white\/30 { color: var(--ink-faint) !important; }
+        .paper .text-white\/40 { color: var(--ink-faint) !important; }
+        .paper .text-gray-400 { color: var(--ink-soft) !important; }
+        .paper .text-gray-500 { color: var(--ink-soft) !important; }
+        .paper .text-white { color: var(--ink) !important; }
+        .paper .border-white { border-color: var(--ink-line) !important; }
+        .paper .border-white\/5 { border-color: var(--ink-line) !important; }
+        .paper .border-white\/10 { border-color: rgba(26, 21, 14, 0.22) !important; }
+        .paper .border-white\/20 { border-color: rgba(26, 21, 14, 0.26) !important; }
+        .paper .border-white\/30 { border-color: rgba(26, 21, 14, 0.34) !important; }
+        .paper .bg-white { background: rgba(26, 21, 14, 0.06) !important; }
+        .paper .bg-white\/5 { background: rgba(26, 21, 14, 0.06) !important; }
+        .paper .bg-white\/10 { background: rgba(26, 21, 14, 0.08) !important; }
+        .paper .bg-white\/\[0\.02\] { background: rgba(26, 21, 14, 0.035) !important; }
+        .paper .bg-deep-black\/50 { background: rgba(26, 21, 14, 0.04) !important; }
+        .paper .bg-charcoal { background: var(--paper) !important; }
+        .paper .from-charcoal { --tw-gradient-from: var(--paper) !important; }
+        .paper .via-transparent { --tw-gradient-stops: var(--paper) !important; }
+        .paper .to-charcoal { --tw-gradient-to: var(--paper) !important; }
+        .paper .bg-gradient-to-b { background: linear-gradient(to bottom, var(--paper), transparent 100%) !important; }
+        .paper .mix-blend-difference { mix-blend-mode: normal !important; }
+        .paper .blend-diff { mix-blend-mode: normal !important; }
+        .paper .text-outline { -webkit-text-stroke: rgba(26, 21, 14, 0.55) !important; }
+
+        /* paper cards & plates */
+        .paper .premium-citation-box {
+            background: #fdfaf3;
+            border-color: var(--ink-line);
+            box-shadow: 0 1px 0 rgba(26, 21, 14, 0.04);
+        }
+        .paper .premium-citation-box::before {
+            background: #FF0022;
+            box-shadow: none;
+        }
+        .paper .tactical-grid-item {
+            border-color: var(--ink-line);
+        }
+        .paper .tactical-btn {
+            border-color: var(--ink-line);
+            color: var(--ink);
+            background: transparent;
+        }
+        .paper .tactical-btn:hover { color: #FF0022; border-color: rgba(255, 0, 34, 0.55); }
+        .paper .tactical-btn::before { background: var(--ink); }
+        .paper .tactical-btn.secondary { border-color: rgba(255, 0, 34, 0.55); color: #FF0022; }
+        .paper .font-jp-glitch { color: #FF0022; opacity: 0.06; }
+        .paper .micro-blueprint { color: var(--ink-faint); opacity: 0.55; }
+        .paper .kanji-stamp { background: rgba(255, 0, 34, 0.06); }
+        .paper .highlight-text { text-shadow: none; }
+
+        /* editorial helpers */
+        .kicker-ed {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.42em;
+            font-size: 11px;
+            color: #FF0022;
+        }
+        .ed-note {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-size: 10px;
+            color: #FF0022;
+        }
+        .ed-rule { height: 2px; width: 56px; background: #FF0022; }
+        .ed-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 1;
+            color: #FF0022;
+        }
+        .num-ghost {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-style: italic;
+            line-height: 0.8;
+            color: rgba(255, 0, 34, 0.10);
+            user-select: none;
+            pointer-events: none;
+        }
+        .paper .num-ghost { color: rgba(26, 21, 14, 0.06); }
+        .stat-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(26, 21, 14, 0.12);
+        }
+        .stat-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            min-width: 120px;
+        }
+        .stat-bar-wrap { flex: 1; height: 5px; background: rgba(26, 21, 14, 0.1); }
+        .stat-bar { display: block; height: 100%; background: #FF0022; width: var(--stat-w, 100%); }
+
+        /* expertise chapter rows (dark) */
+        .exp-chapter {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .exp-chapter:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .exp-chapter:hover { border-color: rgba(255, 0, 34, 0.6); }
+        .exp-num {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 900;
+            color: rgba(255, 0, 34, 0.85);
+        }
+        .exp-chapter .stat-label { color: rgba(255, 255, 255, 0.45); }
+        .exp-chapter .stat-bar-wrap { background: rgba(255, 255, 255, 0.12); }
+    </style>
 </head>
 
 <body class="bg-charcoal text-white font-body selection:bg-sharingan-red overflow-x-hidden crt-flicker splatter-bg">
@@ -1475,28 +1614,27 @@
         <div class="katana-line" id="katana-line"></div>
     </div>
     <section
-        class="relative py-48 md:py-80 bg-charcoal z-[45] mt-[-30vh] opacity-0 translate-x-[-50px] about-reveal-wrap overflow-hidden"
+        class="relative py-48 md:py-80 z-[45] mt-[-30vh] opacity-0 translate-x-[-50px] about-reveal-wrap overflow-hidden paper"
         data-purpose="about-section" id="about">
-        <!-- Technical Background Layer -->
+        <!-- Paper Background Layer -->
         <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute inset-0 opacity-[0.03]"
-                style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;">
+            <div class="absolute inset-0 opacity-[0.04]"
+                style="background-image: linear-gradient(rgba(26,21,14,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(26,21,14,0.8) 1px, transparent 1px); background-size: 72px 72px;">
             </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-charcoal via-transparent to-charcoal"></div>
-            <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/10 blur-sm animate-scanline"></div>
+            <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/25"></div>
         </div>
-        <div class="w-full h-px bg-white/5 relative z-10"></div>
+        <div class="w-full h-px bg-white/10 relative z-10"></div>
         <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center mb-4 micro-blueprint px-2"><span
-                    class="text-sharingan-red">V.03_REVISION_DATA</span></div>
+            <div class="flex justify-between items-center mb-4 px-2"><span
+                    class="ed-note">VOL.01 — THE HUMAN</span><span class="kicker-ed">EST. 2007 · CREMONA, IT</span></div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-20">
                 <div class="lg:col-span-1 border-r border-white/5 pr-4 relative">
                     <div class="sticky top-32">
                         <div class="absolute -left-4 top-0 w-1 h-12 bg-sharingan-red/40"></div>
+                        <span class="ed-num block">01 /</span>
                         <span
-                            class="font-header text-sharingan-red text-2xl tracking-tighter block font-black">01/</span>
-                        <span
-                            class="vertical-text font-header text-white/20 text-[8px] tracking-[2em] uppercase mt-12 block">PROTOCOL_INITIATED</span>
+                            class="vertical-text ed-note text-[8px] tracking-[2em] uppercase mt-12 block opacity-70">THE
+                            HUMAN</span>
                         <div class="mt-20 space-y-4 opacity-20">
                             <div class="w-full h-px bg-white"></div>
                             <div class="w-1/2 h-px bg-white"></div>
@@ -1507,17 +1645,15 @@
                     <div class="relative mb-20">
                         <div class="ui-corner ui-corner-tl"></div>
                         <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative">
-                            <span
-                                class="block font-header text-[10px] tracking-[1em] text-sharingan-red mb-8 animate-pulse">//
-                                IDENTITY_PROTOCOL_V7.2</span>
+                            <span class="block ed-note mb-8">Gurnoor Tamber — engineer, creator, hustler</span>
                             <span class="block relative z-10 rgb-split">Gurnoor</span>
                             <span
-                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Tamber</span>
+                                class="text-sharingan-red italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Tamber</span>
                             <div
                                 class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
                             </div>
-                            <span class="tracking-[-0.05em] block -mt-4 text-outline opacity-30 relative z-10"
-                                style="-webkit-text-stroke: 1px rgba(255,255,255,0.5);">ARCHIVE_DATA</span>
+                            <span class="tracking-[-0.05em] block -mt-4 text-outline opacity-40 relative z-10"
+                                style="-webkit-text-stroke: 1px rgba(26,21,14,0.45);">SINCE 2007</span>
                         </h2>
                     </div>
                     <div class="space-y-12 max-w-xl">
@@ -1533,21 +1669,21 @@
                                 DRIVEN BY THE <span
                                     class="highlight-text font-bold uppercase underline decoration-sharingan-red/50">HUSTLE</span>"
                             </p>
-                            <div class="flex items-center space-x-4 opacity-40">
+                            <div class="flex items-center space-x-4 opacity-50">
                                 <div class="w-8 h-px bg-sharingan-red"></div>
-                                <span class="font-header text-[8px] tracking-[0.5em] uppercase">Citation // 引用</span>
+                                <span class="ed-note">— the manifesto, volume one —</span>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="tactical-grid-item">
-                                <span class="font-header text-[8px] text-sharingan-red block mb-2">EDUCATION_DATA</span>
-                                <p class="font-body text-sm text-gray-400">4th Year Student @ <span
+                                <span class="ed-note block mb-2">Where I study</span>
+                                <p class="font-body text-sm text-gray-500">4th Year Student @ <span
                                         class="text-white">Liceo Scientifico Aselli</span>, Cremona</p>
                             </div>
                             <div class="tactical-grid-item">
-                                <span class="font-header text-[8px] text-sharingan-red block mb-2">INTERESTS_SYNC</span>
-                                <p class="font-body text-sm text-gray-400"><span class="text-white">AI</span> // <span
+                                <span class="ed-note block mb-2">What I'm into</span>
+                                <p class="font-body text-sm text-gray-500"><span class="text-white">AI</span> // <span
                                         class="text-white">Tech</span> // <span class="text-white">Games</span></p>
                             </div>
                         </div>
@@ -1559,24 +1695,23 @@
                             <div class="w-1 h-1 bg-sharingan-red"></div>
                             <div class="w-1 h-1 bg-white/20"></div>
                         </div>
-                        <img class="w-full aspect-[4/5] object-cover grayscale brightness-50 group-hover:brightness-100 group-hover:grayscale-0 transition-all duration-1000"
+                        <img class="w-full aspect-[4/5] object-cover grayscale contrast-105 group-hover:grayscale-0 transition-all duration-1000"
                             src="/phtots_projects/me_photo.jpeg" style="object-position: 50% 25%;" />
                         <div class="absolute bottom-4 left-4 flex flex-col items-start translate-z-10">
-                            <span
-                                class="font-header text-[8px] text-sharingan-red tracking-widest animate-pulse">S_LEVEL_ACCESS_GRANTED</span>
-                            <span class="font-mono text-[6px] text-white/40">NEURAL_SYNC: 99.8%</span>
+                            <span class="ed-note">Gurnoor, in the wild</span>
+                            <span class="font-mono text-[6px] text-white/40">Cremona, IT</span>
                         </div>
                         <div
-                            class="absolute -right-10 top-1/2 -rotate-90 origin-right font-header text-[7px] text-white/10 tracking-[1em]">
-                            BIO_PHOTOMETRY</div>
+                            class="absolute -right-10 top-1/2 -rotate-90 origin-right ed-note text-[7px] tracking-[1em] opacity-70">
+                            PORTRAIT · 2026</div>
                     </div>
-                    <div class="mt-12 grid grid-cols-2 gap-px bg-white/5 border border-white/5">
+                    <div class="mt-12 grid grid-cols-2 gap-px bg-white/10">
                         <div class="p-6 flex flex-col">
-                            <span class="font-header text-[9px] text-gray-500 uppercase">Exp_Total</span>
-                            <span class="font-display text-4xl">05_YRS</span>
+                            <span class="ed-note uppercase">Years grinding</span>
+                            <span class="font-display text-4xl">05</span>
                         </div>
-                        <div class="p-6 flex flex-col border-l border-white/5">
-                            <span class="font-header text-[9px] text-gray-500 uppercase">Ops_Count</span>
+                        <div class="p-6 flex flex-col border-l border-white/10">
+                            <span class="ed-note uppercase">Builds shipped</span>
                             <span class="font-display text-4xl">40+</span>
                         </div>
                     </div>
@@ -1586,27 +1721,26 @@
     </section>
     <!-- END: About Section -->
     <!-- BEGIN: About Continuation (Hackathon Records) -->
-    <section class="relative py-48 md:py-80 bg-charcoal overflow-hidden" id="hackathon">
-        <!-- Technical Background Layer -->
+    <section class="relative py-48 md:py-80 overflow-hidden paper" id="hackathon">
+        <!-- Paper Background Layer -->
         <div class="absolute inset-0 pointer-events-none">
-            <div class="absolute inset-0 opacity-[0.03]"
-                style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;">
+            <div class="absolute inset-0 opacity-[0.04]"
+                style="background-image: linear-gradient(rgba(26,21,14,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(26,21,14,0.8) 1px, transparent 1px); background-size: 72px 72px;">
             </div>
-            <div class="absolute inset-0 bg-gradient-to-b from-charcoal via-transparent to-charcoal"></div>
-            <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/10 blur-sm animate-scanline"></div>
+            <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/25"></div>
         </div>
-        <div class="w-full h-px bg-white/5 relative z-10"></div>
+        <div class="w-full h-px bg-white/10 relative z-10"></div>
         <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center mb-4 micro-blueprint px-2"><span
-                    class="text-sharingan-red kanji-stamp">V.04_COMPETITION_LOG</span><span>HACKATHON_ARCHIVE</span></div>
+            <div class="flex justify-between items-center mb-4 px-2"><span
+                    class="ed-note">VOL.02 — COMPETITION RECORDS</span><span class="kicker-ed">HACKATHON ARCHIVE</span></div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-20">
-                <div class="lg:col-span-1 border-r border-white/5 pr-4 relative">
+                <div class="lg:col-span-1 border-r border-white/10 pr-4 relative">
                     <div class="sticky top-32">
                         <div class="absolute -left-4 top-0 w-1 h-12 bg-sharingan-red/40"></div>
+                        <span class="ed-num block">02 /</span>
                         <span
-                            class="font-header text-sharingan-red text-2xl tracking-tighter block font-black">02/</span>
-                        <span
-                            class="vertical-text font-header text-white/20 text-[8px] tracking-[2em] uppercase mt-12 block">FIELD_RECORDS</span>
+                            class="vertical-text ed-note text-[8px] tracking-[2em] uppercase mt-12 block opacity-70">FIELD
+                            RECORDS</span>
                         <div class="mt-20 space-y-4 opacity-20">
                             <div class="w-full h-px bg-white"></div>
                             <div class="w-1/2 h-px bg-white"></div>
@@ -1617,12 +1751,10 @@
                     <div class="relative mb-20">
                         <div class="ui-corner ui-corner-tl"></div>
                         <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative katana-slice">
-                            <span
-                                class="block font-header text-[10px] tracking-[1em] text-sharingan-red mb-8 animate-pulse">//
-                                COMPETITION_HISTORY_V1</span>
+                            <span class="block ed-note mb-8">Where the trophy shelf lives</span>
                             <span class="block relative z-10 rgb-split">Hackathon</span>
                             <span
-                                class="text-white italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Records</span>
+                                class="text-sharingan-red italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Records</span>
                             <div
                                 class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
                             </div>
@@ -1708,98 +1840,107 @@
                             class="text-[0.2em] align-middle ml-4 text-white/20">専門知識</span>
                     </h2>
                     <div class="absolute top-0 right-0 hidden md:block">
-                        <div class="flex flex-col items-end space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-2 h-2 bg-sharingan-red rounded-full animate-pulse"></div>
-                                <span class="font-mono text-[8px] text-sharingan-red tracking-[0.3em]">HUSTLE_STATUS:
-                                    ACTIVE</span>
-                            </div>
-                            <div class="w-64 h-px bg-white/10"></div><span
-                                class="font-mono text-[10px] text-gray-500">TECHNICAL_SKILL_MATRIX_V.2.4</span>
+                        <div class="flex flex-col items-end space-y-3">
+                            <span class="font-serif-display italic text-sharingan-red text-5xl">&ldquo;hustle&rdquo;</span>
+                            <div class="w-64 h-px bg-white/10"></div>
+                            <span class="ed-note">what keeps it moving</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
-                <!-- Item 1: THE ENGINEER -->
-                <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group transition-all duration-700 relative overflow-hidden spotlight-card">
-                    <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                        <span class="font-header text-4xl">0x01</span>
+            <div class="space-y-14 relative">
+                <div class="absolute -left-6 top-0 bottom-0 w-px bg-sharingan-red/30"></div>
+                <!-- Chapter 01: THE ENGINEER -->
+                <div class="exp-chapter pl-8 md:pl-14 pt-12 group">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="md:col-span-1"><span class="exp-num text-5xl md:text-6xl">01</span></div>
+                        <div class="md:col-span-4">
+                            <h3
+                                class="font-display text-3xl md:text-4xl uppercase leading-tight group-hover:translate-x-3 transition-transform">
+                                The Engineer</h3>
+                            <p class="text-sm text-gray-500 mt-4 leading-relaxed">Systems architecture and logic
+                                primitives — structuring efficiency from the ground up.</p>
+                        </div>
+                        <div class="md:col-span-7">
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">Architecture</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 90%"></span></div>
+                            </div>
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">Logic Design</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 85%"></span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        class="font-header text-[10px] text-sharingan-red group-hover:text-white mb-16 tracking-[0.4em]">
-                        ENGINE DATA // 0x01</div>
-                    <h3
-                        class="font-display text-2xl md:text-3xl uppercase mb-8 group-hover:translate-x-4 transition-transform leading-tight">
-                        The Engineer</h3>
-                    <div
-                        class="font-mono text-[10px] text-sharingan-red/60 group-hover:text-white/60 mb-4 uppercase tracking-tighter">
-                        Systems Architecture & Logic Primitives</div>
-                    <div class="w-0 group-hover:w-full h-px bg-white/30 transition-all duration-700 mb-8"></div>
-                    <p class="text-sm text-gray-500 group-hover:text-white/70 font-light leading-relaxed">Structuring
-                        efficiency from the ground up.</p>
                 </div>
-                <!-- Item 2: THE CREATOR -->
-                <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative overflow-hidden spotlight-card">
-                    <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                        <span class="font-header text-4xl">0x02</span>
+                <!-- Chapter 02: THE CREATOR -->
+                <div class="exp-chapter pl-8 md:pl-14 pt-12 group">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="md:col-span-1"><span class="exp-num text-5xl md:text-6xl">02</span></div>
+                        <div class="md:col-span-4">
+                            <h3
+                                class="font-display text-3xl md:text-4xl uppercase leading-tight group-hover:translate-x-3 transition-transform">
+                                The Creator</h3>
+                            <p class="text-sm text-gray-500 mt-4 leading-relaxed">Full-stack digital manifestations —
+                                synthesizing UI/UX with robust backends.</p>
+                        </div>
+                        <div class="md:col-span-7">
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">Frontend</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 88%"></span></div>
+                            </div>
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">Backend</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 82%"></span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        class="font-header text-[10px] text-sharingan-red group-hover:text-white mb-16 tracking-[0.4em]">
-                        SYNTHESIS // 0x02</div>
-                    <h3
-                        class="font-display text-2xl md:text-3xl uppercase mb-8 group-hover:translate-x-4 transition-transform leading-tight">
-                        The Creator</h3>
-                    <div
-                        class="font-mono text-[10px] text-sharingan-red/60 group-hover:text-white/60 mb-4 uppercase tracking-tighter">
-                        Full-Stack Digital Manifestations</div>
-                    <div class="w-0 group-hover:w-full h-px bg-white/30 transition-all duration-700 mb-8"></div>
-                    <p class="text-sm text-gray-500 group-hover:text-white/70 font-light leading-relaxed">Synthesizing
-                        UI/UX with robust backends.</p>
                 </div>
-                <!-- Item 3: THE THINKER -->
-                <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden spotlight-card">
-                    <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                        <span class="font-header text-4xl">0x03</span>
+                <!-- Chapter 03: THE THINKER -->
+                <div class="exp-chapter pl-8 md:pl-14 pt-12 group">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="md:col-span-1"><span class="exp-num text-5xl md:text-6xl">03</span></div>
+                        <div class="md:col-span-4">
+                            <h3
+                                class="font-display text-3xl md:text-4xl uppercase leading-tight group-hover:translate-x-3 transition-transform">
+                                The Thinker</h3>
+                            <p class="text-sm text-gray-500 mt-4 leading-relaxed">Cognitive AI and neural integration —
+                                leveraging LLMs for complex problem solving.</p>
+                        </div>
+                        <div class="md:col-span-7">
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">AI / ML</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 86%"></span></div>
+                            </div>
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">LLM Systems</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 84%"></span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        class="font-header text-[10px] text-sharingan-red group-hover:text-white mb-16 tracking-[0.4em]">
-                        COGNITIVE // 0x03</div>
-                    <h3
-                        class="font-display text-2xl md:text-3xl uppercase mb-8 group-hover:translate-x-4 transition-transform leading-tight">
-                        The Thinker</h3>
-                    <div class="font-mono text-[10px] text-sharingan-red/60 group-hover:text-white/60 mb-4 uppercase tracking-tighter"
-                        style="font-size: 8px;">
-                        Cognitive AI & Neural Integration</div>
-                    <div class="w-0 group-hover:w-full h-px bg-white/30 transition-all duration-700 mb-8"></div>
-                    <p class="text-sm text-gray-500 group-hover:text-white/70 font-light leading-relaxed">Leveraging
-                        LLMs for complex problem solving.</p>
                 </div>
-                <!-- Item 4: THE HUSTLER -->
-                <div
-                    class="bg-deep-black/50 border border-white/5 p-12 hover:bg-sharingan-red group relative transition-all duration-700 overflow-hidden spotlight-card">
-                    <div class="ui-corner ui-corner-tl opacity-0 group-hover:opacity-100"></div>
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-30 transition-opacity">
-                        <span class="font-header text-4xl">0x04</span>
+                <!-- Chapter 04: THE HUSTLER -->
+                <div class="exp-chapter pl-8 md:pl-14 pt-12 group">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                        <div class="md:col-span-1"><span class="exp-num text-5xl md:text-6xl">04</span></div>
+                        <div class="md:col-span-4">
+                            <h3
+                                class="font-display text-3xl md:text-4xl uppercase leading-tight group-hover:translate-x-3 transition-transform">
+                                The Hustler</h3>
+                            <p class="text-sm text-gray-500 mt-4 leading-relaxed">Relentless production cycles —
+                                executing vision at maximum.</p>
+                        </div>
+                        <div class="md:col-span-7">
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">Ship Rate</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 95%"></span></div>
+                            </div>
+                            <div class="stat-row max-w-lg">
+                                <span class="stat-label">Iteration Speed</span>
+                                <div class="stat-bar-wrap"><span class="stat-bar" style="--stat-w: 92%"></span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        class="font-header text-[10px] text-sharingan-red group-hover:text-white mb-16 tracking-[0.4em]">
-                        PRODUCTION // 0x04</div>
-                    <h3
-                        class="font-display text-2xl md:text-3xl uppercase mb-8 group-hover:translate-x-4 transition-transform leading-tight">
-                        The Hustler</h3>
-                    <div
-                        class="font-mono text-[10px] text-sharingan-red/60 group-hover:text-white/60 mb-4 uppercase tracking-tighter">
-                        Relentless 18H Production Cycles</div>
-                    <div class="w-0 group-hover:w-full h-px bg-white/30 transition-all duration-700 mb-8"></div>
-                    <p class="text-sm text-gray-500 group-hover:text-white/70 font-light leading-relaxed">Executing
-                        vision at maximum.</p>
                 </div>
             </div>
             <div class="mt-24">
