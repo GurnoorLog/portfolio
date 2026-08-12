@@ -1472,6 +1472,34 @@
             font-style: italic;
             color: #FF0022;
         }
+
+        /* ---- section-to-section blend bridges ---- */
+        .blend-into-dark {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 34vh;
+            background: linear-gradient(to bottom, rgba(13, 13, 13, 1) 0%, rgba(13, 13, 13, 0) 72%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .blend-into-cream {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 170px;
+            background: linear-gradient(to bottom, rgba(242, 236, 225, 1) 0%, rgba(242, 236, 225, 0) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .blend-seam {
+            position: absolute;
+            left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF0022 18%, #FF0022 82%, transparent);
+            opacity: 0.55;
+            transform: translateY(-1px);
+            pointer-events: none;
+            z-index: 3;
+        }
     </style>
 </head>
 
@@ -1699,6 +1727,8 @@
             </div>
             <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/25"></div>
         </div>
+        <div class="blend-into-dark"></div>
+        <div class="blend-seam top-0"></div>
         <div class="w-full h-px bg-white/10 relative z-10"></div>
         <div class="relative z-10 -mx-6 md:-mx-0 mt-10 mb-2 ticker-band">
             <div class="ticker-band__track">
@@ -1893,6 +1923,8 @@
 
     <!-- BEGIN: Expertise Section -->
     <section class="py-48 md:py-80 bg-charcoal relative overflow-hidden" data-purpose="expertise-grid" id="expertise">
+        <div class="blend-into-cream"></div>
+        <div class="blend-seam top-0"></div>
         <!-- Background Text Deco -->
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-5 flex items-center justify-center">
             <span class="font-display text-[30vw] uppercase text-outline leading-none">TECH</span>
