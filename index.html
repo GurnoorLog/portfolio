@@ -1396,6 +1396,82 @@
         }
         .exp-chapter .stat-label { color: rgba(255, 255, 255, 0.45); }
         .exp-chapter .stat-bar-wrap { background: rgba(255, 255, 255, 0.12); }
+
+        /* marquee ticker + giant numerals */
+        .ticker-band {
+            position: relative;
+            overflow: hidden;
+            background: #FF0022;
+            padding: 12px 0;
+            transform: rotate(-1.2deg) scale(1.02);
+            box-shadow: 0 2px 24px rgba(255, 0, 34, 0.35);
+            z-index: 5;
+        }
+        .ticker-band__track {
+            display: flex;
+            width: max-content;
+            animation: ticker-scroll 26s linear infinite;
+        }
+        .ticker-band span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.34em;
+            text-transform: uppercase;
+            color: #f2ece1;
+            white-space: nowrap;
+            padding: 0 22px;
+        }
+        @keyframes ticker-scroll {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .ed-issue {
+            position: absolute;
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-style: italic;
+            font-size: clamp(16rem, 34vw, 34rem);
+            line-height: 0.72;
+            color: rgba(26, 21, 14, 0.055);
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+        .ed-stamp {
+            display: inline-block;
+            border: 2px solid #FF0022;
+            color: #FF0022;
+            padding: 2px 12px;
+            transform: rotate(-6deg);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+        .img-editorial {
+            outline: 1px solid rgba(26, 21, 14, 0.18);
+            outline-offset: -1px;
+        }
+        .img-editorial-caption {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+        }
+        .stat-figure {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            line-height: 0.9;
+            font-size: clamp(4.5rem, 8vw, 8rem);
+            color: var(--ink);
+        }
+        .stat-figure em {
+            font-style: italic;
+            color: #FF0022;
+        }
     </style>
 </head>
 
@@ -1624,9 +1700,14 @@
             <div class="absolute top-0 left-0 w-full h-[5px] bg-sharingan-red/25"></div>
         </div>
         <div class="w-full h-px bg-white/10 relative z-10"></div>
+        <div class="relative z-10 -mx-6 md:-mx-0 mt-10 mb-2 ticker-band">
+            <div class="ticker-band__track">
+                <span>Engineer&nbsp;·&nbsp;Creator&nbsp;·&nbsp;Hustler</span><span>Gurnoor&nbsp;Tamber</span><span>Born&nbsp;2008&nbsp;·&nbsp;Cremona</span><span>Full&nbsp;Send</span><span>Engineer&nbsp;·&nbsp;Creator&nbsp;·&nbsp;Hustler</span><span>Gurnoor&nbsp;Tamber</span><span>Born&nbsp;2008&nbsp;·&nbsp;Cremona</span><span>Full&nbsp;Send</span>
+            </div>
+        </div>
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center mb-4 px-2"><span
-                    class="ed-note">VOL.01 — THE HUMAN</span><span class="kicker-ed">EST. 2007 · CREMONA, IT</span></div>
+                    class="ed-note">VOL.01 — THE HUMAN</span><span class="kicker-ed">BORN 2008 · CREMONA, IT</span></div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-20">
                 <div class="lg:col-span-1 border-r border-white/5 pr-4 relative">
                     <div class="sticky top-32">
@@ -1641,7 +1722,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-6 lg:ml-12">
+                <div class="lg:col-span-6 lg:ml-12 relative">
+                    <div class="ed-issue top-[-8rem] right-0 hidden lg:block" aria-hidden="true">01</div>
                     <div class="relative mb-20">
                         <div class="ui-corner ui-corner-tl"></div>
                         <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative">
@@ -1653,7 +1735,7 @@
                                 class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
                             </div>
                             <span class="tracking-[-0.05em] block -mt-4 text-outline opacity-40 relative z-10"
-                                style="-webkit-text-stroke: 1px rgba(26,21,14,0.45);">SINCE 2007</span>
+                                style="-webkit-text-stroke: 1px rgba(26,21,14,0.45);">SINCE 2008</span>
                         </h2>
                     </div>
                     <div class="space-y-12 max-w-xl">
@@ -1690,29 +1772,30 @@
                     </div>
                 </div>
                 <div class="lg:col-span-5 relative mt-24 lg:mt-0">
-                    <div class="relative p-1 border border-white/10 group overflow-hidden">
-                        <div class="absolute top-2 right-2 flex space-x-1">
-                            <div class="w-1 h-1 bg-sharingan-red"></div>
-                            <div class="w-1 h-1 bg-white/20"></div>
+                    <div class="relative p-2 border border-white/10 group overflow-hidden img-editorial">
+                        <div class="absolute -top-4 -left-4 w-10 h-10 border-t-2 border-l-2 border-sharingan-red z-10"></div>
+                        <div class="absolute -bottom-4 -right-4 w-10 h-10 border-b-2 border-r-2 border-sharingan-red z-10"></div>
+                        <div class="absolute top-3 right-3 z-10">
+                            <span class="ed-stamp">Vol. 01</span>
                         </div>
                         <img class="w-full aspect-[4/5] object-cover grayscale contrast-105 group-hover:grayscale-0 transition-all duration-1000"
                             src="/phtots_projects/me_photo.jpeg" style="object-position: 50% 25%;" />
-                        <div class="absolute bottom-4 left-4 flex flex-col items-start translate-z-10">
-                            <span class="ed-note">Gurnoor, in the wild</span>
-                            <span class="font-mono text-[6px] text-white/40">Cremona, IT</span>
+                        <div class="absolute bottom-0 left-0 right-0 bg-[linear-gradient(to_top,rgba(26,21,14,0.55),transparent)] px-5 pt-14 pb-4">
+                            <span class="block img-editorial-caption text-[#f2ece1]">Gurnoor Tamber — Cremona, IT</span>
+                            <span class="block font-serif-display italic text-[#f2ece1]/90 text-xl mt-1">&ldquo;the photo that proves I actually exist&rdquo;</span>
                         </div>
                         <div
                             class="absolute -right-10 top-1/2 -rotate-90 origin-right ed-note text-[7px] tracking-[1em] opacity-70">
                             PORTRAIT · 2026</div>
                     </div>
-                    <div class="mt-12 grid grid-cols-2 gap-px bg-white/10">
+                    <div class="mt-14 grid grid-cols-2 gap-px bg-white/10 border-t-2 border-sharingan-red">
                         <div class="p-6 flex flex-col">
                             <span class="ed-note uppercase">Years grinding</span>
-                            <span class="font-display text-4xl">05</span>
+                            <span class="stat-figure">05<em>yrs</em></span>
                         </div>
                         <div class="p-6 flex flex-col border-l border-white/10">
                             <span class="ed-note uppercase">Builds shipped</span>
-                            <span class="font-display text-4xl">40+</span>
+                            <span class="stat-figure">40<em>+</em></span>
                         </div>
                     </div>
                 </div>
@@ -1733,89 +1816,73 @@
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center mb-4 px-2"><span
                     class="ed-note">VOL.02 — COMPETITION RECORDS</span><span class="kicker-ed">HACKATHON ARCHIVE</span></div>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-t border-white/10 pt-20">
-                <div class="lg:col-span-1 border-r border-white/10 pr-4 relative">
-                    <div class="sticky top-32">
-                        <div class="absolute -left-4 top-0 w-1 h-12 bg-sharingan-red/40"></div>
-                        <span class="ed-num block">02 /</span>
+            <div class="relative border-t border-white/10 pt-20">
+                <div class="ed-issue top-[-6rem] left-0" aria-hidden="true">02</div>
+                <div class="relative mb-24">
+                    <div class="ui-corner ui-corner-tl"></div>
+                    <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative katana-slice">
+                        <span class="block ed-note mb-8">Where the trophy shelf lives</span>
+                        <span class="block relative z-10 rgb-split">Hackathon</span>
                         <span
-                            class="vertical-text ed-note text-[8px] tracking-[2em] uppercase mt-12 block opacity-70">FIELD
-                            RECORDS</span>
-                        <div class="mt-20 space-y-4 opacity-20">
-                            <div class="w-full h-px bg-white"></div>
-                            <div class="w-1/2 h-px bg-white"></div>
+                            class="text-sharingan-red italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Records</span>
+                        <div
+                            class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
                         </div>
-                    </div>
+                    </h2>
                 </div>
-                <div class="lg:col-span-11">
-                    <div class="relative mb-20">
-                        <div class="ui-corner ui-corner-tl"></div>
-                        <h2 class="font-display text-7xl md:text-9xl leading-[0.8] uppercase p-8 group relative katana-slice">
-                            <span class="block ed-note mb-8">Where the trophy shelf lives</span>
-                            <span class="block relative z-10 rgb-split">Hackathon</span>
-                            <span
-                                class="text-sharingan-red italic font-serif-display lowercase text-8xl md:text-[12rem] block -mt-4 -ml-12 blend-diff relative z-20 rgb-split">Records</span>
-                            <div
-                                class="absolute -bottom-8 -right-8 w-32 h-32 border-b border-r border-sharingan-red/20 pointer-events-none">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="premium-citation-box relative z-10 group spotlight-card">
+                        <div class="citation-glitch-bg"></div>
+                        <div class="font-jp-glitch top-0 right-0">戦績</div>
+                        <span class="absolute -top-3 left-10 ed-stamp">Finalist</span>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-6">
+                                <span
+                                    class="font-header text-[9px] tracking-[0.4em] text-sharingan-red uppercase">USAII® GLOBAL
+                                    AI HACKATHON 2026</span>
                             </div>
-                        </h2>
-                    </div>
-                    <div class="space-y-12 max-w-xl">
-                        <div class="premium-citation-box group spotlight-card">
-                            <div class="citation-glitch-bg"></div>
-                            <div class="font-jp-glitch top-0 right-0">戦績</div>
-                            <div class="relative z-10">
-                                <div class="flex items-center justify-between mb-6">
-                                    <span
-                                        class="font-header text-[9px] tracking-[0.4em] text-sharingan-red uppercase">USAII® GLOBAL
-                                        AI HACKATHON 2026</span>
-                                    <span
-                                        class="font-header text-[9px] text-sharingan-red border border-sharingan-red/40 px-3 py-1 uppercase">FINALIST</span>
-                                </div>
-                                <p class="font-body text-2xl md:text-3xl text-white leading-tight font-light mb-6 tracking-tighter">
-                                    <span class="highlight-text font-bold">CanteenTycoon AI</span> — AI-powered canteen
-                                    management system built for the hackathon.
-                                </p>
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="https://devpost.com/software/canteentycoon-ai" target="_blank"
-                                        rel="noopener" class="tactical-btn">
-                                        <span class="relative z-10">VIEW_DEVPOST_SUBMISSION</span>
-                                        <div class="btn-decor-line"></div>
-                                    </a>
-                                    <a href="/certificates/usaii-certificate.png" target="_blank" rel="noopener"
-                                        class="tactical-btn secondary">
-                                        <span class="relative z-10">VIEW_CERTIFICATE</span>
-                                        <div class="btn-decor-line"></div>
-                                    </a>
-                                </div>
+                            <p class="font-body text-2xl md:text-3xl text-white leading-tight font-light mb-6 tracking-tighter">
+                                <span class="highlight-text font-bold">CanteenTycoon AI</span> — AI-powered canteen
+                                management system built for the hackathon.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://devpost.com/software/canteentycoon-ai" target="_blank"
+                                    rel="noopener" class="tactical-btn">
+                                    <span class="relative z-10">VIEW_DEVPOST_SUBMISSION</span>
+                                    <div class="btn-decor-line"></div>
+                                </a>
+                                <a href="/certificates/usaii-certificate.png" target="_blank" rel="noopener"
+                                    class="tactical-btn secondary">
+                                    <span class="relative z-10">VIEW_CERTIFICATE</span>
+                                    <div class="btn-decor-line"></div>
+                                </a>
                             </div>
                         </div>
-                        <div class="premium-citation-box group spotlight-card">
-                            <div class="citation-glitch-bg"></div>
-                            <div class="font-jp-glitch top-0 right-0">戦術</div>
-                            <div class="relative z-10">
-                                <div class="flex items-center justify-between mb-6">
-                                    <span
-                                        class="font-header text-[9px] tracking-[0.4em] text-sharingan-red uppercase">UNITED HACKS V7</span>
-                                    <span
-                                        class="font-header text-[9px] px-3 py-1 border border-sharingan-red/40 text-sharingan-red uppercase">3RD PLACE</span>
-                                </div>
-                                <p class="font-body text-2xl md:text-3xl text-white leading-tight font-light mb-6 tracking-tighter">
-                                    <span class="text-white font-bold">PenaltyIQ</span> — an intelligent penalty-kick
-                                    prediction system.
-                                </p>
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="https://devpost.com/software/penaltyiq" target="_blank" rel="noopener"
-                                        class="tactical-btn">
-                                        <span class="relative z-10">VIEW_DEVPOST_SUBMISSION</span>
-                                        <div class="btn-decor-line"></div>
-                                    </a>
-                                    <a href="/certificates/united-hacks-certificate.pdf" target="_blank"
-                                        rel="noopener" class="tactical-btn secondary">
-                                        <span class="relative z-10">VIEW_CERTIFICATE</span>
-                                        <div class="btn-decor-line"></div>
-                                    </a>
-                                </div>
+                    </div>
+                    <div class="premium-citation-box relative z-10 group spotlight-card mt-16 lg:mt-24">
+                        <div class="citation-glitch-bg"></div>
+                        <div class="font-jp-glitch top-0 right-0">戦術</div>
+                        <span class="absolute -top-3 left-10 ed-stamp">3rd Place</span>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-between mb-6">
+                                <span
+                                    class="font-header text-[9px] tracking-[0.4em] text-sharingan-red uppercase">UNITED HACKS V7</span>
+                            </div>
+                            <p class="font-body text-2xl md:text-3xl text-white leading-tight font-light mb-6 tracking-tighter">
+                                <span class="text-white font-bold">PenaltyIQ</span> — an intelligent penalty-kick
+                                prediction system.
+                            </p>
+                            <div class="flex flex-wrap gap-4">
+                                <a href="https://devpost.com/software/penaltyiq" target="_blank" rel="noopener"
+                                    class="tactical-btn">
+                                    <span class="relative z-10">VIEW_DEVPOST_SUBMISSION</span>
+                                    <div class="btn-decor-line"></div>
+                                </a>
+                                <a href="/certificates/united-hacks-certificate.pdf" target="_blank"
+                                    rel="noopener" class="tactical-btn secondary">
+                                    <span class="relative z-10">VIEW_CERTIFICATE</span>
+                                    <div class="btn-decor-line"></div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1833,8 +1900,9 @@
         <div class="container mx-auto px-6 relative z-10">
             <div class="mb-24 flex items-end justify-between">
                 <div class="relative mb-32"><span
-                        class="font-header text-sharingan-red text-sm tracking-widest block mb-4 kanji-stamp">02 /
-                        CAPABILITIES</span>
+                        class="ed-note block mb-4">— Capabilities —</span>
+                    <div class="absolute -top-24 right-0 hidden lg:block ed-issue"
+                        style="color: rgba(255,255,255,0.04)">03</div>
                     <h2 class="font-display text-6xl md:text-9xl uppercase leading-none tracking-tighter relative katana-slice">Core
                         <br /><span class="text-sharingan-red font-serif-display italic">Expertise</span> <span
                             class="text-[0.2em] align-middle ml-4 text-white/20">専門知識</span>
@@ -1946,9 +2014,8 @@
             <div class="mt-24">
                 <div class="flex items-center space-x-4 mb-8">
                     <div class="w-1 h-8 bg-sharingan-red"></div>
-                    <span class="font-header text-[10px] text-sharingan-red tracking-[0.5em] uppercase">TECH_STACK //
-                        SKILL_TAGS</span>
-                    <span class="font-mono text-[8px] text-white/20 tracking-[0.3em]">DEPLOYED_MODULES</span>
+                    <span class="ed-note tracking-[0.3em]">Tools &amp; Tech</span>
+                    <span class="font-mono text-[8px] text-white/20 tracking-[0.3em]">the everyday kit</span>
                 </div>
                 <div class="flex flex-wrap gap-4">
                     <span class="project-tag">AI</span>
@@ -1965,9 +2032,7 @@
                 <div class="lg:col-span-4 relative">
                     <div class="ui-corner ui-corner-tl"></div>
                     <h3 class="font-display text-5xl md:text-7xl uppercase leading-[0.85] p-4 relative">
-                        <span
-                            class="block font-header text-[10px] tracking-[1em] text-sharingan-red mb-6 animate-pulse">//
-                            CURRENT_OPERATION</span>
+                        <span class="block ed-note mb-6">— the side quest —</span>
                         <span class="block relative z-10">Side</span>
                         <span
                             class="text-sharingan-red italic font-serif-display lowercase text-6xl md:text-[7rem] block -mt-4 -ml-4 blend-diff relative z-20">Hustle</span>
@@ -1976,7 +2041,7 @@
                         own side-hustle startup that I created — building it up from the ground.</p>
                     <div class="mt-8 flex items-center space-x-3">
                         <div class="w-1 h-8 bg-sharingan-red"></div>
-                        <span class="font-mono text-[8px] text-sharingan-red tracking-[0.3em]">STATUS: LIVE // ON_MARKET</span>
+                        <span class="ed-note tracking-[0.2em]">Live &amp; on the move</span>
                     </div>
                 </div>
                 <div class="lg:col-span-8 relative">
