@@ -994,7 +994,7 @@
             height: 100vh;
             z-index: 299999;
             pointer-events: none;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(26, 21, 14, 0.12);
             mix-blend-mode: normal;
         }
 
@@ -1300,10 +1300,26 @@
         .paper .from-charcoal { --tw-gradient-from: var(--paper) !important; }
         .paper .via-transparent { --tw-gradient-stops: var(--paper) !important; }
         .paper .to-charcoal { --tw-gradient-to: var(--paper) !important; }
-        .paper .bg-gradient-to-b { background: linear-gradient(to bottom, var(--paper), transparent 100%) !important; }
         .paper .mix-blend-difference { mix-blend-mode: normal !important; }
         .paper .blend-diff { mix-blend-mode: normal !important; }
         .paper .text-outline { -webkit-text-stroke: rgba(26, 21, 14, 0.55) !important; }
+
+        /* site-wide cream theme (body is now .paper) */
+        .paper .text-white\/80 { color: var(--ink) !important; }
+        .paper .text-gray-600 { color: var(--ink-faint) !important; }
+        .paper .text-gray-700 { color: var(--ink-soft) !important; }
+        .paper .border-white\/40 { border-color: rgba(26, 21, 14, 0.42) !important; }
+        .paper .bg-deep-black { background: var(--paper) !important; }
+        .paper .bg-deep-black\/80 { background: rgba(242, 236, 225, 0.9) !important; }
+        .paper .bg-charcoal\/80 { background: rgba(242, 236, 225, 0.9) !important; }
+        .paper .bg-deep-black\/95 { background: #fdfaf3 !important; }
+        .paper .from-deep-black { --tw-gradient-from: var(--paper) !important; }
+        .paper .via-deep-black\/10 { --tw-gradient-stops: var(--paper) !important; }
+        .paper .via-deep-black\/20 { --tw-gradient-stops: var(--paper) !important; }
+        .paper .via-deep-black\/\[0\.15\] { --tw-gradient-stops: var(--paper) !important; }
+        .paper .to-deep-black { --tw-gradient-to: var(--paper) !important; }
+        .paper .to-deep-black\/80 { --tw-gradient-to: rgba(242, 236, 225, 0.85) !important; }
+        .paper .to-deep-black\/90 { --tw-gradient-to: rgba(242, 236, 225, 0.9) !important; }
 
         /* paper cards & plates */
         .paper .premium-citation-box {
@@ -1382,11 +1398,11 @@
         .stat-bar-wrap { flex: 1; height: 5px; background: rgba(26, 21, 14, 0.1); }
         .stat-bar { display: block; height: 100%; background: #FF0022; width: var(--stat-w, 100%); }
 
-        /* expertise chapter rows (dark) */
+        /* expertise chapter rows (light editorial) */
         .exp-chapter {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(26, 21, 14, 0.12);
         }
-        .exp-chapter:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .exp-chapter:last-child { border-bottom: 1px solid rgba(26, 21, 14, 0.12); }
         .exp-chapter:hover { border-color: rgba(255, 0, 34, 0.6); }
         .exp-num {
             font-family: 'Playfair Display', serif;
@@ -1394,8 +1410,8 @@
             font-weight: 900;
             color: rgba(255, 0, 34, 0.85);
         }
-        .exp-chapter .stat-label { color: rgba(255, 255, 255, 0.45); }
-        .exp-chapter .stat-bar-wrap { background: rgba(255, 255, 255, 0.12); }
+        .exp-chapter .stat-label { color: rgba(26, 21, 14, 0.55); }
+        .exp-chapter .stat-bar-wrap { background: rgba(26, 21, 14, 0.1); }
 
         /* marquee ticker + giant numerals */
         .ticker-band {
@@ -1937,11 +1953,9 @@
     </section>
 
     <!-- BEGIN: Expertise Section -->
-    <section class="py-48 md:py-80 bg-charcoal relative overflow-hidden" data-purpose="expertise-grid" id="expertise">
-        <div class="blend-into-cream"></div>
-        <div class="blend-seam top-0"></div>
+    <section class="py-48 md:py-80 paper relative overflow-hidden" data-purpose="expertise-grid" id="expertise">
         <!-- Background Text Deco -->
-        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-5 flex items-center justify-center">
+        <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-[0.06] flex items-center justify-center">
             <span class="font-display text-[30vw] uppercase text-outline leading-none">TECH</span>
         </div>
         <div class="container mx-auto px-6 relative z-10">
@@ -1949,7 +1963,7 @@
                 <div class="relative mb-32"><span
                         class="ed-note block mb-4">— Capabilities —</span>
                     <div class="absolute -top-24 right-0 hidden lg:block ed-issue"
-                        style="color: rgba(255,255,255,0.04)">03</div>
+                        style="color: rgba(26,21,14,0.055)">03</div>
                     <h2 class="font-display text-6xl md:text-9xl uppercase leading-none tracking-tighter relative katana-slice">Core
                         <br /><span class="text-sharingan-red font-serif-display italic">Expertise</span> <span
                             class="text-[0.2em] align-middle ml-4 text-white/20">専門知識</span>
@@ -2122,6 +2136,7 @@
 
     <!-- BEGIN: Second Scrollytelling Section (Intro to Works) -->
     <section class="relative h-[300vh] w-full bg-deep-black z-40" id="scrollytelling-2">
+        <div class="blend-into-cream"></div>
         <div class="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center">
             <canvas class="absolute inset-0 w-full h-full object-cover opacity-60" id="sequence-canvas-2"></canvas>
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-deep-black/20 to-deep-black"></div>
@@ -2143,8 +2158,9 @@
 
     <!-- END: Test WebGL Section -->
 <!-- BEGIN: Footer / Call to Action -->
-    <footer class="bg-charcoal py-32 border-t border-white/5" data-purpose="main-footer">
-        <div class="container mx-auto px-6">
+    <footer class="paper relative py-32 border-t border-white/5" data-purpose="main-footer">
+        <div class="blend-into-dark"></div>
+        <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-12 md:space-y-0">
                 <div class="max-w-md">
                     <h4 class="font-display text-3xl uppercase mb-6">Let's build something <span

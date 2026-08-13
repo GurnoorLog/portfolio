@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Staggered Menu ---
     new StaggeredMenu({
         position: 'right',
-        colors: ['#1a0005', '#3d0008', '#FF0022'],
-        menuButtonColor: '#ffffff',
-        openMenuButtonColor: '#FF0022',
+        colors: ['#f2ece1', '#e9dfcc', '#FF0022'],
+        menuButtonColor: '#1a150e',
+        openMenuButtonColor: '#1a150e',
         changeMenuColorOnOpen: true,
         displayItemNumbering: true,
         displaySocials: true,
